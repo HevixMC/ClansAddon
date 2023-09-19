@@ -1,0 +1,1 @@
+don't added deaths to victim if the death caused happens without killer like fall blab a blab a blab a

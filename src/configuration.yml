@@ -1,0 +1,5 @@
+MYSQL:
+  DATABASE: 'clans'
+  USERNAME: 'root'
+  PASSWORD: 'easypassword'
+  HOST: 'localhost'

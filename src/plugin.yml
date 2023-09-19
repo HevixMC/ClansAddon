@@ -1,0 +1,5 @@
+name: ClanUtils
+main: dev.a8kj.ClanUtils
+version: 0.1
+commands:
+  leaderboard: 
