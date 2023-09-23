@@ -3,6 +3,6 @@ hevixmc clans addons contains on leaderboard order by points / kills / deaths , 
 
 TODO : 
 
-- Make Leaderboard
+- Make Leaderboard task manager to load leaderboard with them locations
 - Make sure that support cracked players
 - Make sure we have placeholder tag and hook
