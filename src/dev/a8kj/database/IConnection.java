@@ -10,8 +10,4 @@ public interface IConnection {
 
     boolean isConnected();
 
-    default String me() {
-        return "bro am so sad id have life bro help me i have a lot of problems with my parnets and brothers bro idk what am doing bro :( my death is comming soon";
-    }
-
 }
