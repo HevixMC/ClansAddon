@@ -31,8 +31,12 @@ public class LeaderboardBuilder {
         setLocation(location);
     }
 
+    public LeaderboardBuilder() {
+        setLocation(null);
+    }
+
     public LeaderboardBuilder setHeader(@NonNull String line) {
-        hologram.appendTextLine(line);
+        this.header = line;
         return this;
     }
 
@@ -42,7 +46,7 @@ public class LeaderboardBuilder {
     }
 
     public LeaderboardBuilder setFooter(@NonNull String line) {
-        hologram.appendTextLine(line);
+        this.footer = line;
         return this;
     }
 
@@ -82,6 +86,42 @@ public class LeaderboardBuilder {
     public LeaderboardBuilder clearLines() {
         hologram.clearLines();
         return this;
+    }
+
+    public LeaderboardBuilder debug() {
+        StringBuilder strBuilder = new StringBuilder();
+        if (header != null)
+            strBuilder.append(header).append("\n").append("\n");
+        if (insideLines != null) {
+            for (String myLine : insideLines) {
+                strBuilder.append(myLine);
+                strBuilder.append("\n");
+            }
+            strBuilder.append("\n");
+        }
+        if (footer != null)
+            strBuilder.append(footer);
+
+        System.out.println(strBuilder.toString());
+        return this;
+    }
+
+    public void debugg() {
+        StringBuilder strBuilder = new StringBuilder();
+        if (header != null)
+            strBuilder.append(header).append("\n").append("\n");
+        if (insideLines != null) {
+            for (String myLine : insideLines) {
+                strBuilder.append(myLine);
+                strBuilder.append("\n");
+            }
+            strBuilder.append("\n");
+        }
+        if (footer != null)
+            strBuilder.append(footer);
+
+        System.out.println(strBuilder.toString());
+
     }
 
     public void update() {

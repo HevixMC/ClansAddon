@@ -1,9 +1,15 @@
 package dev.a8kj;
 
+import org.bukkit.Bukkit;
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import dev.a8kj.command.LeaderboardCommand;
 import dev.a8kj.configuration.Configuration;
 import dev.a8kj.database.impl.ConnectionManager;
+import dev.a8kj.events.PlayerDeathListener;
+import dev.a8kj.events.PlayerJoinListener;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,9 +36,25 @@ public class ClanAddonsMain extends JavaPlugin {
         setConnectionManager(cManager);
     }
 
+    void registerEvents() {
+        PluginManager pluginManager = Bukkit.getServer().getPluginManager();
+        Listener[] listeners = { new PlayerDeathListener(connectionManager),
+                new PlayerJoinListener(connectionManager) };
+        for (Listener listener : listeners) {
+            pluginManager.registerEvents(listener, instance);
+        }
+    }
+
+
+    void registerCommand(){
+        getCommand("setlb").setExecutor(new LeaderboardCommand());
+    }
+
     @Override
     public void onEnable() {
         init();
+        registerEvents();
+        registerCommand();
     }
 
     @Override

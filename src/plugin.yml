@@ -1,5 +1,5 @@
 name: ClanUtils
-main: dev.a8kj.ClanUtils
+main: dev.a8kj.ClanAddonsMain
 version: 0.1
 commands:
-  leaderboard: 
+  setlb: 

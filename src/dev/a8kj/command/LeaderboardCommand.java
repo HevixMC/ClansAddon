@@ -9,6 +9,7 @@ import dev.a8kj.ClanAddonsMain;
 import dev.a8kj.database.data.management.ClanManager;
 import dev.a8kj.leaderboard.OrderBy;
 import dev.a8kj.leaderboard.hologramapi.manager.LeaderboardBuilder;
+import dev.a8kj.leaderboard.hologramapi.task.UpdateTask;
 import dev.a8kj.logger.LoggerManager;
 import dev.a8kj.util.ChatUtils;
 import dev.a8kj.util.DateUtils;
@@ -46,8 +47,15 @@ public class LeaderboardCommand extends LoggerManager implements CommandExecutor
                             .setInsideLines(
                                     new ClanManager(ClanAddonsMain.getConnectionManager()).getTop(10, OrderBy.DEATHS))
                             .setFooter("Last update was in : " + DateUtils.getFormattedDate()).build();
+
+                    UpdateTask.leaderboards.add(leaderboardBuilder);
                 } else {
-                    
+                    leaderboardBuilder.setHeader("Top 10 kills leaderboard")
+                            .setInsideLines(
+                                    new ClanManager(ClanAddonsMain.getConnectionManager()).getTop(10, OrderBy.KILLS))
+                            .setFooter("Last update was in : " + DateUtils.getFormattedDate()).build();
+
+                    UpdateTask.leaderboards.add(leaderboardBuilder);
                 }
 
                 break;
