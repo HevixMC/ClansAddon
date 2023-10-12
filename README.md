@@ -1,4 +1,6 @@
-# ClansAddon
+# ClansAddon (UnSpported & not working)
+
+// This project was a test to proof thing and now we have custom guilds system Alhamd ll Allah
 hevixmc clans addons contains on leaderboard order by points / kills / deaths , utils to clans and clans wars
 
 TODO : 
